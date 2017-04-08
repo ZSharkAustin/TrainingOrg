@@ -1,0 +1,49 @@
+<aura:component controller="CalendarExampleController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="lstEvents" 
+                    type="CalendarExampleWrapper[]" />
+    
+    <ltng:require scripts="{!join(',', 
+                           $Resource.fullcalendar331 + '/lib/moment.min.js', 
+                           $Resource.fullcalendar331 + '/lib/jquery.min.js',
+                           $Resource.fullcalendar331 + '/lib/jquery.min.js',
+                           $Resource.fullcalendar331 + '/fullcalendar.min.js')}"
+                  afterScriptsLoaded="{!c.doInit}" />
+    
+    <ltng:require styles="{!$Resource.fullcalendar331 + '/fullcalendar.min.css'}" />
+    
+    <div>
+        <div class="slds-page-header slds-page-header--object-home">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account">
+                                <lightning:icon iconName="standard:account" size="small" class="iconStyle"/>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset">Calendar View</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        
+        <div>
+            <lightning:layout >
+                <lightning:layoutItem padding="around-medium" 
+                                      class="slds-size--1-of-1">
+                    <div aura:id="mycal" id="calendar"></div>  
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+            
+            
+        </div>
+        
+        
+    </div> 
+    
+    
+    
+</aura:component>
